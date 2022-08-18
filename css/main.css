@@ -1,0 +1,270 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  padding: 20px 0;
+  width: 1170px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 32px;
+}
+
+.animation__container {
+  background-color: tomato;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+header li {
+  position: relative;
+}
+
+.header__link {
+  display: block;
+  padding: 32px 0;
+  color: #212121;
+  letter-spacing: 0.02em;
+  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.header__link--current::after {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  -webkit-animation: changeScale 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: changeScale 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: deeppink;
+}
+
+.header__link:hover,
+.header__link:focus {
+  color: deeppink;
+}
+
+.thumb {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 256px;
+  height: 256px;
+  background-color: #2a2a2a;
+  -webkit-animation: thumbScale 500ms linear;
+          animation: thumbScale 500ms linear;
+  -webkit-transition: -webkit-transform 500ms linear;
+  transition: -webkit-transform 500ms linear;
+  transition: transform 500ms linear;
+  transition: transform 500ms linear, -webkit-transform 500ms linear;
+}
+
+.thumb:focus,
+.thumb:hover {
+  -webkit-transform: skew(-10deg);
+          transform: skew(-10deg);
+}
+
+.thumb::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 236px;
+  height: 236px;
+  -webkit-animation: afterBorder 2000ms linear infinite;
+          animation: afterBorder 2000ms linear infinite;
+}
+
+.text {
+  z-index: 1;
+  color: #ffffff;
+  background-color: red;
+  padding: 10px 10px;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-transition: background-color 500ms linear, -webkit-transform 500ms linear;
+  transition: background-color 500ms linear, -webkit-transform 500ms linear;
+  transition: transform 500ms linear, background-color 500ms linear;
+  transition: transform 500ms linear, background-color 500ms linear, -webkit-transform 500ms linear;
+}
+
+.text:hover,
+.text:focus {
+  -webkit-transform: rotate(720deg);
+          transform: rotate(720deg);
+  background-color: lightblue;
+}
+
+@-webkit-keyframes afterBorder {
+  0% {
+    border: 3px dotted pink;
+  }
+  100% {
+    border: 3px dashed pink;
+  }
+}
+
+@keyframes afterBorder {
+  0% {
+    border: 3px dotted pink;
+  }
+  100% {
+    border: 3px dashed pink;
+  }
+}
+@-webkit-keyframes thumbScale {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes thumbScale {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.close {
+  display: none;
+}
+
+input:checked + .close {
+  display: block;
+}
+
+input:checked ~ label > .text-close {
+  display: none;
+}
+
+input:not(:checked) ~ label > .text-close {
+  display: block;
+}
+
+input:checked ~ label > .text-open {
+  display: block;
+}
+
+input:not(:checked) ~ label > .text-open {
+  display: none;
+}
+
+.label {
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid;
+  border-color: rgb(50, 50, 50);
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 5px 0 0 0;
+  width: 110px;
+  height: 30px;
+  font-family: sans-serif;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.label::before {
+  content: "";
+  height: 2px;
+  width: 10px;
+  position: absolute;
+  left: 5px;
+  top: -2px;
+  display: block;
+  background: white;
+  -webkit-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
+}
+
+.label::after {
+  content: "";
+  height: 2px;
+  width: 10px;
+  position: absolute;
+  right: 5px;
+  bottom: -2px;
+  display: block;
+  background: white;
+  -webkit-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
+}
+
+.label:focus::before,
+.label:hover::before {
+  left: calc(100% - 20px);
+}
+
+.label:focus::after,
+.label:hover::after {
+  right: calc(100% - 20px);
+}
+
+.text-open {
+  color: red;
+}
+
+.text-close {
+  color: green;
+}/*# sourceMappingURL=main.css.map */

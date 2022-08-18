@@ -1,0 +1,93 @@
+input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+.close {
+	display: none;
+}
+
+input:checked + .close {
+	display: block;
+}
+
+input:checked ~ label > .text-close {
+	display: none;
+}
+
+input:not(:checked) ~ label > .text-close {
+	display: block;
+}
+
+input:checked ~ label > .text-open {
+	display: block;
+}
+
+input:not(:checked) ~ label > .text-open {
+	display: none;
+}
+
+.label {
+	text-transform: uppercase;
+	background: transparent;
+	cursor: pointer;
+	position: relative;
+	border: 2px solid;
+	border-color: rgb(50, 50, 50);
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 5px 0 0 0;
+	width: 110px;
+	height: 30px;
+	font-family: sans-serif;
+	font-weight: 900;
+	line-height: 1;
+}
+
+.label::before {
+	content: '';
+	height: 2px;
+	width: 10px;
+	position: absolute;
+	left: 5px;
+	top: -2px;
+	display: block;
+	background: white;
+	transition: 500ms ease-in-out;
+}
+.label::after {
+	content: '';
+	height: 2px;
+	width: 10px;
+	position: absolute;
+	right: 5px;
+	bottom: -2px;
+	display: block;
+	background: white;
+	transition: 500ms ease-in-out;
+}
+.label:focus::before,
+.label:hover::before {
+	left: calc(100% - 20px);
+}
+.label:focus::after,
+.label:hover::after {
+	right: calc(100% - 20px);
+}
+
+.text-open {
+	color: red;
+}
+.text-close {
+	color: green;
+}
