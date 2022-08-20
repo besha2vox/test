@@ -1,8 +1,14 @@
-function foo(array) {
-	for (let i = 0; i < array.length; i += 1) {
-		array[i] *= 2;
-	}
+function i() {
+	return 3;
 }
-const numbers = [1, 2, 3, 4, 5];
-foo(numbers);
-console.log(numbers);
+console.log('3 :', typeof i);
+
+function j() {
+	return 'asfqwrqrqsdasf';
+}
+console.log('asfqwrqrqsdasf :', typeof j);
+
+function huy() {
+	return 3 < 2;
+}
+console.log('3 < 2 :', typeof huy);
