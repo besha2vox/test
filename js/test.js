@@ -1,25 +1,17 @@
-function getEvenNumbers(start, end) {
-	let number = [];
+const words = [];
 
-	for (let i = start; i <= end; i += 2) {
-		if (i % 2 === 0) {
-			number.push(i);
-		}
-		if (i % 2 === 1 && i < end) {
-			number.push(i + 1);
-		}
+for (let i = 0; i > -1; i += 1) {
+	let word = prompt('Введи слово! \nДля завершения нажми "Cancel".').toLowerCase();
+	let number = Number(word);
+	if (words.includes(word)) {
+		continue;
+	} else if (!isNaN(number)) {
+		continue;
+	} else if (word === null) {
+		break;
+	} else {
+		words.push(word);
+		words.sort();
 	}
-
-	console.log(number);
-	return number;
 }
-
-getEvenNumbers(2, 5);
-getEvenNumbers(3, 11);
-getEvenNumbers(6, 12);
-getEvenNumbers(8, 8);
-getEvenNumbers(7, 53);
-getEvenNumbers(1, 17);
-getEvenNumbers(20, 25);
-getEvenNumbers(15, 190);
-getEvenNumbers(34, 3e4);
+console.log(words);
