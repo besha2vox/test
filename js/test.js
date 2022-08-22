@@ -10,7 +10,7 @@ function getEvenNumbers(start, end) {
 		}
 	}
 
-	console.table(`${start} => ${end} even numbers:`, number);
+	console.log(number);
 	return number;
 }
 
@@ -18,4 +18,8 @@ getEvenNumbers(2, 5);
 getEvenNumbers(3, 11);
 getEvenNumbers(6, 12);
 getEvenNumbers(8, 8);
-getEvenNumbers(7, 7);
+getEvenNumbers(7, 53);
+getEvenNumbers(1, 17);
+getEvenNumbers(20, 25);
+getEvenNumbers(15, 190);
+getEvenNumbers(34, 3e4);
