@@ -300,4 +300,22 @@ input:checked ~ .thumb-text > label > .more-less .text-open {
 input:checked ~ .thumb-text > label > .more-less .text-close {
   -webkit-transform: translateY(200%);
           transform: translateY(200%);
+}
+
+.gradient {
+  -webkit-filter: drop-shadow(20px 20px 80px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(20px 20px 80px rgba(0, 0, 0, 0.25));
+}
+
+.background-img {
+  width: 437px;
+  height: 293px;
+  background-image: url(../img/decor-img.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-mask-image: url(../img/mask.svg);
+          mask-image: url(../img/mask.svg);
+  -webkit-box-shadow: 20px 80px rgba(0, 0, 0, 0.25);
+          box-shadow: 20px 80px rgba(0, 0, 0, 0.25);
 }/*# sourceMappingURL=main.css.map */
