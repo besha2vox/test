@@ -1,18 +1,28 @@
-const words = [];
+const itKotiki = [
+	'Анастасія Белкіна',
+	'Вадим Суровицький',
+	'Сергій Ревва',
+	'Віктор Ганзенко',
+	'Валерія Нікітюк',
+	'Леонід Мельник',
+	'Ганна Костяна',
+	'Роман Гордієнко',
+	'Ліна Миргородська',
+	'Анастасія Пригаровська',
+	'Вадим Калінченков',
+	'Юлія Горохова',
+	'Іван Богданов',
+];
+console.table(itKotiki);
 
-for (let i = 0; i > -1; i += 1) {
-	let word = prompt('Введи слово! \nДля завершения нажми "Cancel".');
-	let number = Number(word);
-	if (word === null) {
-		break;
-	} else if (!isNaN(number)) {
-		continue;
-	} else if (words.includes(word.toLocaleLowerCase())) {
-		continue;
-	} else {
-		words.push(word.toLocaleLowerCase());
-		words.sort();
-		console.log(i, words);
-	}
+const userName = prompt("Вкажи своє ім'я");
+const userLastName = prompt('Вкажи своє прізвище');
+const userFullName = userName + ' ' + userLastName;
+console.log(userFullName);
+if (itKotiki.includes(userFullName)) {
+	const indx = itKotiki.indexOf(userFullName);
+	alert(`${userName}, вітаю  ฅ^•ﻌ•^ฅ`);
+} else {
+	const userName = userFullName.split(' ');
+	alert(`${userName}, я тебе не знаю!`);
 }
-console.log(words);
