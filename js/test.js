@@ -28,16 +28,33 @@ const itKotikiRu = [
 	'Юлия Горохова',
 	'Иван Богданов',
 ];
-console.table(itKotiki);
 
 const userName = prompt("Вкажи своє ім'я");
 const userLastName = prompt('Вкажи своє прізвище');
 const userFullName = userName + ' ' + userLastName;
-console.log(userFullName);
-if (itKotiki.includes(userFullName) || itKotikiRu.includes(userFullName)) {
-	const indx = itKotiki.indexOf(userFullName);
+const normalizedToLowerCaseuserUserFullName = userFullName.toLowerCase();
+
+const normalizedToLowerCaseuserItKotiki = [];
+for (const member of itKotiki) {
+	normalizedToLowerCaseuserItKotiki.push(member.toLowerCase());
+}
+
+const normalizedToLowerCaseuserItKotikiRu = [];
+for (const member of itKotikiRu) {
+	normalizedToLowerCaseuserItKotikiRu.push(member.toLowerCase());
+}
+
+if (
+	normalizedToLowerCaseuserItKotiki.includes(normalizedToLowerCaseuserUserFullName) ||
+	normalizedToLowerCaseuserItKotikiRu.includes(normalizedToLowerCaseuserUserFullName)
+) {
 	alert(`${userName}, вітаю  ฅ^•ﻌ•^ฅ`);
+} else if (normalizedToLowerCaseuserUserFullName.includes('Альона Гарник'.toLowerCase())) {
+	alert('Альону, вітаємо Вас у нашій котячій команді ฅ^•ﻌ•^ฅ');
 } else {
 	const userName = userFullName.split(' ');
 	alert(`${userName}, я тебе не знаю!`);
 }
+
+console.log('Наша команда ↓');
+console.table(itKotiki);
