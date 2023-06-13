@@ -22,6 +22,21 @@
     <main>
         <section>
             <div class="container">
+                <form class="form">
+                    <input name="a" type="number" onwheel="return false;">
+                    <span>X<sup>2</sup></span>
+                    <input name="b" type="number" onwheel="return false;">
+                    <span>X</span>
+                    <input name="c" type="number" onwheel="return false;">
+                    <span>=</span>
+                    <span>0</span>
+                    <button>get result</button>                    
+                </form>
+                <p>result: <span class="result">?</span></p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
                 <div class="gradient">
                     <div class="background-img">
                     </div>
@@ -30,6 +45,42 @@
             </div>
         </section>
     </main>
+    <script>
+        const form = document.querySelector('.form');
+        const result = document.querySelector('.result')
+
+        const calculate = (a,b,c) => {            
+            const results = {};
+            const discriminant = b**2 - 4 * a * c;
+            if( discriminant > 0) {
+                const x1 = (-b + discriminant**0.5) / (2 * a)
+                const x2 = (-b - discriminant**0.5) / (2 * a)
+                results.x1 = x1;
+                results.x2 = x2;
+            } else if (discriminant === 0) {
+                const x = -b / (2 * a);
+                results.x = x;
+            } else {
+                results.x = 'No roots';
+            }
+            return results;
+        }
+
+        const renderRoots = (results) => {
+            result.innerHTML = Object.entries(results)
+            .map(([key, value]) => ` ${key} = ${value}`)
+        }
+        
+        const onSubmit = (e) => {
+            e.preventDefault();
+            const [ a, b, c ] = e.target.elements;
+            const results = calculate(a.value, b.value, c.value);  
+            renderRoots(results)
+        }
+
+        form.addEventListener('submit', onSubmit)
+
+    </script>
 </body>
 
 </html>
